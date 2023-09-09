@@ -1,1 +1,1 @@
-# rc-bind
+# bind

@@ -1,0 +1,11 @@
+services:
+  nginx:
+    container_name: bind
+    build: .
+    ports:
+      - "50053:53/udp"
+      - "50053:53/tcp"
+    volumes:
+      - ${DPSRV_HOME}/rc/secrets/bind/:/etc/bind/
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
