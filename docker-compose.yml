@@ -1,6 +1,7 @@
 services:
   nginx:
     container_name: bind
+    image: dpsrv/bind
     build: .
     ports:
       - "50053:53/udp"
