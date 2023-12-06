@@ -1,6 +1,6 @@
 services:
   nginx:
-    container_name: bind
+    container_name: dpsrv-bind
     image: dpsrv/bind
     build: .
     ports:
