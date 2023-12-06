@@ -1,4 +1,4 @@
-#!/bin/ash -x
+#!/bin/ash
 
 cd /etc/bind/zones
 
