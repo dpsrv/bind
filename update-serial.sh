@@ -8,7 +8,7 @@ fi
 nextSerial=$( date +%s )
 for zoneFile in "$@"; do
 	serial=$(grep '; serial' $zoneFile|awk '{ print $1 }')
-	sed -i.$serial "s/[0-9]* ; serial/$nextSerial ; serial/" $zoneFile
+	sed -i "s/[0-9]* ; serial/$nextSerial ; serial/" $zoneFile
 done
 
 git commit -m "serial updated: $nextSerial" "$@"
