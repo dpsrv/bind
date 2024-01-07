@@ -1,11 +1,23 @@
-#!/bin/bash -ex
+#!/bin/bash -e
 
-	echo "args: $@"
-	cat
+state="$1"
 
-exit 0
 while read old new ref; do
-    if [ $1 = committed -a $ref = refs/remotes/origin/main ]; then
-        exec .git/hooks/post-push
-    fi
+	if [[ "$ref" =~ ^refs/([^/]*)/(.*)$ ]]; then
+		type=${BASH_REMATCH[1]}
+		id=${BASH_REMATCH[2]}
+
+		if [[ $new =~ ^0+$ ]]; then
+			action=del
+		else
+			action=new
+		fi
+
+		script="$0-$state-$action-$type"
+
+		if [ -x $script ]; then
+			$script $id $old $new
+		fi
+	fi
 done
+

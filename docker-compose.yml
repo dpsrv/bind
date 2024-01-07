@@ -1,7 +1,7 @@
 services:
-  dpsrv-nginx:
+  dpsrv-bind:
     container_name: dpsrv-bind
-    image: dpsrv/bind
+    image: dpsrv/bind:${tag:-latest}
     build: .
     ports:
       - "50053:53/udp"

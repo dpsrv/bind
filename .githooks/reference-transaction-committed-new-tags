@@ -1,0 +1,7 @@
+#!/bin/bash -ex
+
+tag=$1
+old=$2
+new=$3
+
+tag=$tag docker compose build
