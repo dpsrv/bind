@@ -1,0 +1,11 @@
+#!/bin/bash -ex
+
+	echo "args: $@"
+	cat
+
+exit 0
+while read old new ref; do
+    if [ $1 = committed -a $ref = refs/remotes/origin/main ]; then
+        exec .git/hooks/post-push
+    fi
+done
