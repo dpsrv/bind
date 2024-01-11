@@ -8,7 +8,6 @@ services:
       - "53/tcp"
     volumes:
       - ${DPSRV_HOME}/rc/secrets/bind/:/etc/bind/
-      - /etc/resolv.conf:/etc/resolv.conf:ro
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
 networks:
