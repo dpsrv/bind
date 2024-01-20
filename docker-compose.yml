@@ -3,6 +3,7 @@ services:
     container_name: dpsrv-bind-${tag:-latest}
     image: dpsrv/bind:${tag:-latest}
     build: .
+    hostname: $HOSTNAME.dpsrv.me
     ports:
       - "53/udp"
       - "53/tcp"
